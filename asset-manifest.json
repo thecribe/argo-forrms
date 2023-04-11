@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/argo-forms/static/css/main.c2221594.css",
-    "main.js": "/argo-forms/static/js/main.cc580c16.js",
-    "static/js/787.f744f227.chunk.js": "/argo-forms/static/js/787.f744f227.chunk.js",
-    "static/media/cropped-ARGO-logo23.webp": "/argo-forms/static/media/cropped-ARGO-logo23.3c91cdcf8ae9c5fa57e2.webp",
-    "index.html": "/argo-forms/index.html",
-    "main.c2221594.css.map": "/argo-forms/static/css/main.c2221594.css.map",
-    "main.cc580c16.js.map": "/argo-forms/static/js/main.cc580c16.js.map",
-    "787.f744f227.chunk.js.map": "/argo-forms/static/js/787.f744f227.chunk.js.map"
+    "main.css": "/argo-forrms/static/css/main.c2221594.css",
+    "main.js": "/argo-forrms/static/js/main.dc95ea30.js",
+    "static/js/787.f744f227.chunk.js": "/argo-forrms/static/js/787.f744f227.chunk.js",
+    "static/media/cropped-ARGO-logo23.webp": "/argo-forrms/static/media/cropped-ARGO-logo23.3c91cdcf8ae9c5fa57e2.webp",
+    "index.html": "/argo-forrms/index.html",
+    "main.c2221594.css.map": "/argo-forrms/static/css/main.c2221594.css.map",
+    "main.dc95ea30.js.map": "/argo-forrms/static/js/main.dc95ea30.js.map",
+    "787.f744f227.chunk.js.map": "/argo-forrms/static/js/787.f744f227.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c2221594.css",
-    "static/js/main.cc580c16.js"
+    "static/js/main.dc95ea30.js"
   ]
 }
