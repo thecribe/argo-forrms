@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<FormPage />} />
     </Route>
   ),
-  { basename: "/argo-forms" }
+  { basename: "/argo-forrms" }
 );
 
 const App = () => {
