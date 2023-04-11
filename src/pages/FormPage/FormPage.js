@@ -1,5 +1,6 @@
 import React from "react";
 import "./FormPage.scss";
+import Form from "../../components/Form/Form";
 
 const FormPage = () => {
   return (
@@ -79,7 +80,9 @@ const FormPage = () => {
         </div>
       </div>
       <div className="section_form">
-        <div className="container"></div>
+        <div className="container">
+          <Form />
+        </div>
       </div>
     </>
   );

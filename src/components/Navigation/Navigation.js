@@ -2,6 +2,7 @@ import React from "react";
 import "./Navigation.scss";
 import { NavLink } from "react-router-dom";
 import site_logo from "../../assets/cropped-ARGO-logo23.webp";
+import { FaCaretDown, FaCaretRight } from "react-icons/fa";
 const Navigation = () => {
   return (
     <>
@@ -25,118 +26,121 @@ const Navigation = () => {
                   className="nav_links  "
                   to="https://www.argo-research.org/"
                 >
-                  About us
+                  About us <FaCaretDown className="icons" />
                 </NavLink>
                 <div className="menu_dropdown">
-                  <li>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       ARGO History
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Certifications
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Nigeria Team
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       MSK-GCDI Team
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Institutional Partners
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Newsletters
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Copyright Notice
                     </NavLink>
-                  </li>
+                  </div>
                 </div>
               </li>
               <li>
-                <NavLink className="nav_links">Research</NavLink>
+                <NavLink className="nav_links">
+                  Research <FaCaretDown className="icons" />{" "}
+                </NavLink>
                 <div className="menu_dropdown">
-                  <li>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       ARGO Standard Operating Procedures
+                      <FaCaretRight className="icons" />
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Colorectal Cancer
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Biobanking
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Breast Cancer
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Other Research
                     </NavLink>
-                  </li>
-                  <li>
+                  </div>
+                  <div>
                     <NavLink
                       className="nav_links"
                       to="https://www.argo-research.org/"
                     >
                       Future Research
                     </NavLink>
-                  </li>
+                  </div>
                 </div>
               </li>
               <li>

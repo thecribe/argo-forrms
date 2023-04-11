@@ -1,3 +1,4 @@
+import Footer from "./components/Footer/Footer";
 import Navigation from "./components/Navigation/Navigation";
 import FormPage from "./pages/FormPage/FormPage";
 import "./styles.scss";
@@ -14,6 +15,7 @@ const Root = () => {
     <div>
       <Navigation />
       <Outlet />
+      <Footer />
     </div>
   );
 };
@@ -23,7 +25,8 @@ const router = createBrowserRouter(
     <Route path="/" element={<Root />}>
       <Route path="/" element={<FormPage />} />
     </Route>
-  )
+  ),
+  { basename: "/argo-forms" }
 );
 
 const App = () => {

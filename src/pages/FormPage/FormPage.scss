@@ -36,6 +36,7 @@ $primary-color: #1f959e;
       right: 0;
       height: 30px;
       background-color: #b9eb7d;
+      z-index: 1;
     }
 
     &::after {
@@ -48,6 +49,7 @@ $primary-color: #1f959e;
       width: 40px;
       background-color: #1b1a1a;
       transform: rotateZ(45deg);
+      z-index: 1;
     }
   }
 }
@@ -75,4 +77,9 @@ $primary-color: #1f959e;
       }
     }
   }
+}
+
+.section_form {
+  background-color: rgba(243, 238, 238, 0.199);
+  margin-bottom: 5rem;
 }

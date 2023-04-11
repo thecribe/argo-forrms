@@ -1,0 +1,29 @@
+$primary-color: #1f959e;
+
+.section_footer {
+  padding: 5rem 0;
+  background-color: #e7e7e7;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+
+    .widget {
+      text-align: center;
+
+      .footer_links {
+        font-size: 6rem;
+        color: $primary-color;
+      }
+    }
+
+    .widget-2 p:last-child {
+      margin-top: 2rem;
+    }
+
+    .widget-4 .footer_links {
+      font-size: 4rem;
+      margin-left: 3rem;
+    }
+  }
+}
