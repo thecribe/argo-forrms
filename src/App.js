@@ -1,3 +1,5 @@
+import Navigation from "./components/Navigation/Navigation";
+import FormPage from "./pages/FormPage/FormPage";
 import "./styles.scss";
 import {
   createBrowserRouter,
@@ -10,14 +12,18 @@ import {
 const Root = () => {
   return (
     <div>
-      <h1>Root</h1>
+      <Navigation />
       <Outlet />
     </div>
   );
 };
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<Root />}></Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route path="/" element={<FormPage />} />
+    </Route>
+  )
 );
 
 const App = () => {
