@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Form.scss";
+import axios from "axios";
 
 const Form = () => {
   const [formInput, setFormInput] = useState({
@@ -15,14 +16,43 @@ const Form = () => {
     publications: "",
     awards: "",
     personal_statement: "",
+    fileUrl: "",
   });
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const formInputHandler = (event) => {
     setFormInput({ ...formInput, [event.target.name]: event.target.value });
   };
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
+    if (
+      formInput.firstname.length > 0 ||
+      formInput.lastname.length > 0 ||
+      formInput.email.length > 0
+    ) {
+      await axios
+        .post("http://localhost:5001/api/form/", formInput)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+    }
+  };
+
+  const fileuploadHandler = async (e) => {
+    const onUploadProgress = (progressEvent) => {
+      const { loaded, total } = progressEvent;
+      setUploadProgress(Math.floor((loaded * 100) / total));
+    };
+    let formData = new FormData();
+    formData.append("file", e.target.files[0]);
+
+    await axios
+      .post("http://localhost:5001/api/uploads", formData, {
+        onUploadProgress,
+      })
+      .then((res) => setFormInput({ ...formInput, fileUrl: res.data }))
+      .catch((err) => setErrorMessage(err.message));
   };
 
   return (
@@ -36,6 +66,7 @@ const Form = () => {
               name="firstname"
               id="firstname"
               placeholder="Enter First Name"
+              required
               onChange={(event) => formInputHandler(event)}
             />
             <input
@@ -153,16 +184,32 @@ const Form = () => {
           </label>
 
           <div>
-            <input type="file" id="file" name="file" />
+            <input
+              type="file"
+              id="file"
+              name="file"
+              onChange={(e) => fileuploadHandler(e)}
+            />
+            {uploadProgress > 0 && (
+              <div>
+                <div
+                  style={{
+                    backgroundColor: "#1f959e",
+                    width: uploadProgress + "%",
+                    height: "10px",
+                    margin: "1rem 0rem",
+                  }}
+                ></div>
+                <p>Upload Progress {uploadProgress}%</p>
+              </div>
+            )}
           </div>
         </div>
-        <button
-          className="btn"
-          disabled={true}
-          onClick={(event) => formSubmitHandler(event)}
-        >
-          Submit
-        </button>
+        <div className="error-handler-submit">
+          <button className="btn" onClick={(event) => formSubmitHandler(event)}>
+            Submit
+          </button>
+        </div>
       </form>
     </>
   );
