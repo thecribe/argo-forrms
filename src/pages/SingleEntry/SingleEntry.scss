@@ -1,0 +1,63 @@
+$primary-color: #1f959e;
+
+.single-entry {
+  padding: 3rem 0;
+  .container {
+    padding: 3rem 0;
+    table {
+      width: 100%;
+      button {
+        border: none;
+        cursor: pointer;
+        background: $primary-color;
+        color: white;
+        padding: 1rem 2rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+        &:disabled {
+          transform: none;
+          color: lightgray;
+        }
+      }
+      thead {
+        background-color: rgba(243, 238, 238, 0.425);
+        tr {
+          th {
+            text-align: center;
+            font-size: 1.6rem;
+            padding: 2rem 0 2rem 1rem;
+
+            &:first-child {
+              width: 20%;
+            }
+
+            &:last-child {
+              width: 80%;
+            }
+          }
+        }
+      }
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background-color: rgba(243, 238, 238, 0.425);
+          }
+          td {
+            font-size: 1.4rem;
+            padding: 2rem 0 2rem 1rem;
+            &:first-child {
+              font-weight: 600;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+$primary-color: #1f959e;
+
+.form-field {
+  padding: 2rem 0;
+
+  table {
+    width: 100%;
+    button {
+      border: none;
+      cursor: pointer;
+      background: $primary-color;
+      color: white;
+      padding: 1rem 2rem;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    thead {
+      background-color: rgba(243, 238, 238, 0.425);
+
+      tr {
+        th {
+          text-align: left;
+          font-size: 1.6rem;
+
+          &:not(:first-child) {
+            padding: 1.5rem 0rem 1.5rem 1rem;
+            width: 20%;
+          }
+        }
+        .serial-number {
+          padding: 0rem 1rem;
+        }
+        .entry_button {
+          text-align: center;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: rgba(243, 238, 238, 0.425);
+        }
+        td {
+          &:not(:first-child) {
+            padding: 1.5rem 0rem 1.5rem 1rem;
+            width: 20%;
+          }
+
+          font-size: 1.4rem;
+        }
+        .serial-number {
+          text-align: center;
+        }
+        .entry_button {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

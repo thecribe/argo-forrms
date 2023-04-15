@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Form.scss";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const Form = () => {
   const [formInput, setFormInput] = useState({
@@ -19,7 +21,7 @@ const Form = () => {
     fileUrl: "",
   });
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   const formInputHandler = (event) => {
     setFormInput({ ...formInput, [event.target.name]: event.target.value });
@@ -28,14 +30,16 @@ const Form = () => {
   const formSubmitHandler = async (event) => {
     event.preventDefault();
     if (
-      formInput.firstname.length > 0 ||
-      formInput.lastname.length > 0 ||
+      formInput.firstname.length > 0 &&
+      formInput.lastname.length > 0 &&
       formInput.email.length > 0
     ) {
       await axios
         .post("http://localhost:5001/api/form/", formInput)
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+        .then((res) => setMessage(res.data.message))
+        .catch((err) => setMessage(err.response.data.message));
+    } else {
+      setMessage("Please input first name and last name");
     }
   };
 
@@ -52,7 +56,7 @@ const Form = () => {
         onUploadProgress,
       })
       .then((res) => setFormInput({ ...formInput, fileUrl: res.data }))
-      .catch((err) => setErrorMessage(err.message));
+      .catch((err) => setMessage(err.message));
   };
 
   return (
@@ -81,7 +85,7 @@ const Form = () => {
         <div className="form-group">
           <label htmlFor="phone_number">Phone Number</label>
           <input
-            type="number"
+            type="text"
             name="phone_number"
             id="phone_number"
             onChange={(event) => formInputHandler(event)}
@@ -209,8 +213,16 @@ const Form = () => {
           <button className="btn" onClick={(event) => formSubmitHandler(event)}>
             Submit
           </button>
+          <p>{message}</p>
         </div>
       </form>
+      <div className="container admin-btn-animate">
+        <p>
+          <NavLink className="admin-btn">
+            Log in as administrator <FaArrowRight className="arrow" />
+          </NavLink>
+        </p>
+      </div>
     </>
   );
 };
