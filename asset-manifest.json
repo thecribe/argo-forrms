@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/argo-forrms/static/css/main.eecacf39.css",
-    "main.js": "/argo-forrms/static/js/main.714edaf9.js",
+    "main.js": "/argo-forrms/static/js/main.e4c176e2.js",
     "static/js/787.f744f227.chunk.js": "/argo-forrms/static/js/787.f744f227.chunk.js",
     "static/media/cropped-ARGO-logo23.webp": "/argo-forrms/static/media/cropped-ARGO-logo23.3c91cdcf8ae9c5fa57e2.webp",
     "index.html": "/argo-forrms/index.html",
     "main.eecacf39.css.map": "/argo-forrms/static/css/main.eecacf39.css.map",
-    "main.714edaf9.js.map": "/argo-forrms/static/js/main.714edaf9.js.map",
+    "main.e4c176e2.js.map": "/argo-forrms/static/js/main.e4c176e2.js.map",
     "787.f744f227.chunk.js.map": "/argo-forrms/static/js/787.f744f227.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eecacf39.css",
-    "static/js/main.714edaf9.js"
+    "static/js/main.e4c176e2.js"
   ]
 }
