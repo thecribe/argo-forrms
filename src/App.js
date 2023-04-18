@@ -1,3 +1,4 @@
+import axios from "axios";
 import Footer from "./components/Footer/Footer";
 import FormTable, { formFieldLoader } from "./components/FormTable/FormTable";
 import Navigation from "./components/Navigation/Navigation";
@@ -17,6 +18,7 @@ import {
 } from "react-router-dom";
 
 const Root = () => {
+  axios.defaults.withCredentials = true;
   return (
     <>
       <div>

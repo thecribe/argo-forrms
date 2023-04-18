@@ -10,8 +10,9 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: true,
+    origin: ["http://localhost:3000", "https://thecribe.github.io/argo-forrms"],
     credentials: true, //access-control-allow-credentials:true
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
 app.use(bodyParser.json());

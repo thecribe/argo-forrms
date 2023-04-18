@@ -74,6 +74,9 @@ export const formFieldLoader = async () => {
   return axios
     .get("http://localhost:5001/api/form/", {
       withCredentials: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
     })
     .then((res) => res.data);
 };
