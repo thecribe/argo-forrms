@@ -62,7 +62,7 @@ const userAuth = async (req, res) => {
               .cookie("access_token", token, {
                 httpOnly: true,
                 secure: true,
-                SameSite: false,
+                sameSite: "none",
               })
               .status(200)
               .json({

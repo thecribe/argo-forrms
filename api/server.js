@@ -10,11 +10,17 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://thecribe.github.io/argo-forrms"],
+    origin: ["http://localhost:3000", "https://thecribe.github.io"],
     credentials: true, //access-control-allow-credentials:true
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
+
+// app.options("/", (req, res) => {
+//   res.setHeader("Access-Control-Allow-Origin", "https://thecribe.github.io");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   res.sendStatus(204);
+// });
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use("/uploads", express.static("uploads"));
