@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./Form.scss";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
 
 const Form = () => {
   const [formInput, setFormInput] = useState({
@@ -61,7 +59,7 @@ const Form = () => {
 
   return (
     <>
-      <form>
+      <form className="form">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <div className="name">
@@ -216,13 +214,6 @@ const Form = () => {
           <p>{message}</p>
         </div>
       </form>
-      <div className="container admin-btn-animate">
-        <p>
-          <NavLink className="admin-btn">
-            Log in as administrator <FaArrowRight className="arrow" />
-          </NavLink>
-        </p>
-      </div>
     </>
   );
 };

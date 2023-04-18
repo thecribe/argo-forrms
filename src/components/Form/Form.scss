@@ -1,6 +1,6 @@
 $primary-color: #1f959e;
 
-form {
+.form {
   //   background-color: $primary-color;
   //   color: white;
   padding: 3rem;
@@ -49,37 +49,5 @@ form {
       color: $primary-color;
       animation: error 1s ease-in-out infinite;
     }
-  }
-}
-
-.admin-btn {
-  // background-color: red;
-  color: $primary-color;
-
-  &:hover {
-    text-decoration: underline;
-  }
-  .arrow {
-    font-size: 1rem;
-    animation: bounce 2s ease-in-out infinite;
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(15px);
-  }
-}
-@keyframes error {
-  0% {
-    color: red;
-    transform: scale(0.83);
-  }
-  100% {
-    color: red;
-    transform: scale(1.02);
   }
 }

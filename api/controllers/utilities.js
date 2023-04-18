@@ -1,5 +1,6 @@
 const multer = require("multer");
 const mariadb = require("mariadb");
+const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
@@ -25,7 +26,31 @@ const fileUpload = multer.diskStorage({
 
 const uploadFile = multer({ storage: fileUpload });
 
+const verifyToken = (req, res, next) => {
+  const token = req.cookies.access_token;
+
+  if (!token) {
+    res.status(401).json({
+      status: 0,
+      message: "User not Authorize",
+    });
+  } else {
+    try {
+      const data = jwt.verify(token, process.env.JWT_KEY);
+
+      req.userData = { ...data };
+      return next();
+    } catch (error) {
+      res.status(401).json({
+        status: 0,
+        message: "User Authentication failed",
+      });
+    }
+  }
+};
+
 module.exports = {
   uploadFile,
   db,
+  verifyToken,
 };

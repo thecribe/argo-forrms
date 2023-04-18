@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FormPage.scss";
 import Form from "../../components/Form/Form";
+import { FaArrowRight } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router-dom";
+import UserAuthentication from "../UserAuthentication/UserAuthentication";
+import axios from "axios";
 
 const FormPage = () => {
+  const [modalToggle, setModalToggle] = useState(false);
+  const navigate = useNavigate();
+
+  const userData = JSON.parse(localStorage.getItem("user"));
+
+  const logoutHandler = async () => {
+    return await axios
+      .get("http://localhost:5001/api/users/logout", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        localStorage.removeItem("user");
+        navigate("/", { replace: true });
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <>
+      {modalToggle && (
+        <div className="modal-placeholder">
+          <div
+            className="modal-backdrop"
+            onClick={() => setModalToggle(false)}
+          ></div>
+          <div className="modal-content">
+            <UserAuthentication />
+          </div>
+        </div>
+      )}
       <div className="section_cover">
         <div className="section_cover_bgImg">
           <img
@@ -54,25 +85,21 @@ const FormPage = () => {
           <h3>Criteria:</h3>
           <ul>
             <li>
-              {" "}
               <p>Consultant (MD) or Faculty lecturer (PhD)</p>
             </li>
             <li>
-              {" "}
               <p>
                 Open to all physician, nursing, and science (social sciences and
                 basic sciences) fields involved in cancer research
               </p>
             </li>
             <li>
-              {" "}
               <p>
                 Has a position in institution for at least the year of the NCAT
                 program and one year beyond.
               </p>
             </li>
             <li>
-              {" "}
               <p>Support of Department leadership</p>
             </li>
           </ul>
@@ -82,6 +109,21 @@ const FormPage = () => {
       <div className="section_form">
         <div className="container">
           <Form />
+          <div className="admin-btn-animate">
+            {!userData ? (
+              <p onClick={() => setModalToggle(true)}>
+                <NavLink className="admin-btn">
+                  Log in as administrator <FaArrowRight className="arrow" />
+                </NavLink>
+              </p>
+            ) : (
+              <p onClick={logoutHandler}>
+                <NavLink className="admin-btn">
+                  Logout {userData.username} <FaArrowRight className="arrow" />
+                </NavLink>
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </>

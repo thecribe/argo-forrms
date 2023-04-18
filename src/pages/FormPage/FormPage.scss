@@ -28,4 +28,30 @@ $primary-color: #1f959e;
 .section_form {
   background-color: rgba(243, 238, 238, 0.199);
   margin-bottom: 5rem;
+
+  .admin-btn {
+    // background-color: red;
+    color: $primary-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &-animate {
+      width: fit-content;
+    }
+    .arrow {
+      font-size: 1rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(15px);
+    }
+  }
 }

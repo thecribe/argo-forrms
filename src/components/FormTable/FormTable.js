@@ -1,11 +1,12 @@
 import React from "react";
 import "./FormTable.scss";
 import axios from "axios";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData, useNavigate } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const FormTable = () => {
   const loaderData = useLoaderData();
-
+  const navigate = useNavigate();
   let formData = loaderData.data.map((data, index) => {
     return (
       <tr key={index}>
@@ -22,6 +23,21 @@ const FormTable = () => {
       </tr>
     );
   });
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const logoutHandler = async () => {
+    return await axios
+      .get("http://localhost:5001/api/users/logout", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        localStorage.removeItem("user");
+        navigate("/", { replace: true });
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <div className="form-field">
@@ -39,6 +55,13 @@ const FormTable = () => {
             </thead>
             <tbody>{formData}</tbody>
           </table>
+          {user && (
+            <p onClick={logoutHandler} className="logout-btn">
+              <NavLink className="admin-btn">
+                Logout {user.username} <FaArrowRight className="arrow" />
+              </NavLink>
+            </p>
+          )}
         </div>
       </div>
     </>
@@ -48,5 +71,9 @@ const FormTable = () => {
 export default FormTable;
 
 export const formFieldLoader = async () => {
-  return axios.get("http://localhost:5001/api/form/").then((res) => res.data);
+  return axios
+    .get("http://localhost:5001/api/form/", {
+      withCredentials: true,
+    })
+    .then((res) => res.data);
 };

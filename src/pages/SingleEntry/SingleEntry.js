@@ -87,6 +87,8 @@ export default SingleEntry;
 export const singleEntryLoader = async ({ params }) => {
   const id = params.id;
   return await axios
-    .get(`http://localhost:5001/api/form/entries/${id}`)
+    .get(`http://localhost:5001/api/form/entries/${id}`, {
+      withCredentials: true,
+    })
     .then((res) => res.data);
 };

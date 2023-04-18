@@ -18,11 +18,13 @@ import {
 
 const Root = () => {
   return (
-    <div>
-      <Navigation />
-      <Outlet />
-      <Footer />
-    </div>
+    <>
+      <div>
+        <Navigation />
+        <Outlet />
+        <Footer />
+      </div>
+    </>
   );
 };
 

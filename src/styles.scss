@@ -62,3 +62,42 @@ $primary-color: #1f959e;
     }
   }
 }
+
+.modal-placeholder {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-backdrop {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    width: 100%;
+    z-index: 501;
+  }
+
+  .modal-content {
+    z-index: 502;
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    box-shadow: 0 10px 10px -5px;
+  }
+}
+
+@keyframes error {
+  0% {
+    color: red;
+    transform: scale(0.83);
+  }
+  100% {
+    color: red;
+    transform: scale(1.02);
+  }
+}
